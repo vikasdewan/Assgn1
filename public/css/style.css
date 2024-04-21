@@ -1,0 +1,232 @@
+body{
+    font-family: "Roboto Slab", serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-weight: bolder !important;
+    background-color: #FFC0CB !important;
+     
+}
+
+ 
+
+.container{
+    flex: 1; /* occupy full space in the page and make footer stick to bottom*/
+}
+
+/* Navbar */
+.navbar{
+    height: 5rem;
+    background-color: #FFC0CB !important;
+}
+.fa-house-user{
+    color: rgb(230, 18, 18);
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+
+.container-fluid{
+    background-color: #fc97a8 !important;
+    padding: 20px 0px 20px 0px;
+}
+
+
+/* Footer */
+
+.f-info-links a{
+    text-decoration: none;
+    color: black;
+    margin-left: 0.3rem;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+    /* color: black;  */
+}
+
+.f-info-links, .f-info-socials {
+    width: 100%;
+}
+
+
+.f-info-socials i{
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+
+
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #fc9ead;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Cards */
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem !important;
+    
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0rem !important;
+}
+
+.card-title{
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.card-text p{
+    font-weight: 400;
+}
+
+.listing-links{
+    text-decoration: none;
+    color: black;
+}
+
+/* Card Effect */
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.18;
+    background-color: white;
+}
+
+/* New Page */
+
+.add-btn{
+    background-color: rgb(230, 18, 18) !important;
+    border: none !important;
+}
+
+/*edit page*/
+.edit-btn{
+    background-color: rgb(230, 18, 18) !important;
+    border: none !important;
+}
+
+/*SHow page*/
+.show-img{
+    height: 40vh;
+}
+
+.delete-btn{
+    background-color: rgb(0, 0, 0) !important;
+    border: none !important;
+    
+}
+
+.btns{
+    display: flex;
+
+}
+
+
+
+
+@media only screen and (max-width : 600px){
+    
+    .container-fluid{
+        background-color: #b5b5b5 !important;
+        padding: 10px 0px 10px 0px;
+    }
+
+    .sticky-top{
+        padding-top: 0px !important;
+    }
+
+    .filter p{
+        font-size: 0.6rem;
+      }
+
+      .booking-btn{
+        border: none !important;
+      }
+}
+
+
+
+
+/* 1st section under nav bar  */
+.box-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .container1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      height: 40vh;
+    }
+    .section {
+      flex-basis: 32%;
+      background-color: #fd9e9e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+    .section3{
+      background-color: #FFC0CB !important;
+    }
+    .section:nth-child(odd) {
+      background-color: #f1acac;
+    }
+    
+    .box1 {
+      width: 11rem;
+      height: 7rem;
+      background-color: #00ff00;
+      border: 2px solid #333;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 100px;
+    }
+    .box2 {
+      width: 11rem;
+      height: 7rem;
+      background-color: #00f7ff;
+      border: 2px solid #333;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 100px;
+    }
+    .list-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .list {
+      list-style-type: circle;
+      padding: 0;
+    }
+    .list li a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+  hr{
+    height: 10px;
+    background-color: rgb(0, 0, 0);
+  }

@@ -1,0 +1,97 @@
+<%layout('layouts/boilerplate') -%> 
+    
+    <div class="row mt-4 mb-4">
+        <div id="edit-form" class="col-6 offset-3">
+            <h2>Edit The Listing</h2>
+            <form 
+    action="/listings/<%=listing.id%>?_method=PUT" 
+    method="POST" 
+    novalidate
+    class="needs-validation"
+    enctype="multipart/form-data"
+    >
+    
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input 
+        ype="text" 
+        name="listing[title]" 
+        value="<%=listing.title%>" 
+        class="form-control"
+        required
+        > 
+        <div class="valid-feedback">Title Look Good</div>  
+        <div class="invalid-feedback">Please enter a Title</div>
+    </div>
+    <div class="mb-3">
+        <label for="desciption" class="form-label">Description</label>
+        <textarea 
+        name="listing[description]"   
+        cols="30" 
+        rows="3" 
+        class="form-control"
+        required    
+        ><%=listing.description%></textarea>
+        <div class="invalid-feedback">Write a short description</div>
+    </div>
+    <div class="mb-3">
+            Original Listing Image <br/>
+            <img src="<%=originalImageUrl%>" alt="originalImage">
+    </div>
+    <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image</label>
+            <input 
+            type="file" 
+            name="listing[image]" 
+            value="<%=listing.image%>"
+            class="form-control"
+            />
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input 
+                type="number" 
+                name="listing[price]" 
+                value="<%=listing.price%>"
+                class="form-control"
+                required
+                />
+                <div class="invalid-feedback">Price should be valid</div>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input 
+                type="text" 
+                name="listing[country]" 
+                value="<%=listing.country%>"
+                class="form-control"
+                required
+                />
+                <div class="invalid-feedback">Country Name is Required</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input 
+            type="text" 
+            name="listing[location]" 
+            value="<%=listing.location%>"
+            class="form-control"
+            required
+            />
+            <div class="invalid-feedback">Location is required</div>
+        </div>
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+</div>
+</div>
+<!-- <script src="/js/script.js"></script> -->
+ 
+
+<script>
+    let editForm = document.getElementById("edit-form")
+    if(screen.width<862){
+        editForm.classList.remove("col-6","offset-3")
+    }
+</script>

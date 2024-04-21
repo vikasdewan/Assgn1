@@ -1,0 +1,171 @@
+<style>
+    .black{
+        border: 4px solid black;
+    }
+</style>
+
+<%layout('layouts/boilerplate') -%> 
+<div class="row mt-4">
+    <div id="show-title" class="col-8 offset-3 mb-3 ">
+        <h2> <b><%=listing.title%></b></h2>
+  </div>
+        <div id="listing-phone" class="card col-6 offset-3 listing-card">
+            <img 
+            src="<%=listing.image.url%>" 
+            class="card-img-top show-img" 
+            alt="listing_image">
+            <div class="card-body mt-3">
+             <p class="card-text">Owned By : <b><i><%= listing.owner.username%></i></b></p>
+             <p class="card-text"> <%=listing.description%> </p>
+             <p class="card-text">&#8377;<%= listing.price?.toLocaleString("en-IN")%></p>  
+             <p class="card-text">Location :<%=listing.location%></p> 
+             <p class="card-text">Country :<%=listing.country%>   </p>  
+            </div>
+        </div>
+    </div>
+    
+      <% if(currUser && currUser._id.equals(listing.owner._id)) {%> 
+    <div class="btns offset-3 mb-5">
+        <a href="/listings/<%=listing.id%>/edit" 
+        class="btn btn-dark edit-btn ">  Edit </a> 
+        
+        <form 
+        action="/listings/<%=listing.id%>?_method=DELETE"
+         method="POST">
+            <button class="btn btn-dark delete-btn offset-3">Delete</button>
+        </form>         
+    </div>
+    
+    <% } %>  
+
+    <div id="review-phone" class="col-6 offset-3 mb-3">
+      <%  if(currUser) { %>
+        <hr> 
+        <h4>Leave A Review</h4>
+        <form 
+        action="/listings/<%=listing.id%>/reviews" 
+        method="POST" 
+        novalidate
+        class="needs-validation"
+        >
+
+            <!-- <div class="mt-3 mb-2">
+                <input 
+                type="range" 
+                min="1" 
+                max="5" 
+                id="rating" 
+                name="review[rating]" 
+                class="form-range"
+                / >
+            </div> -->
+            <div class="mt-3 mb-2"> 
+                <label for="rating" class="form-label">Rating</label>
+                <fieldset class="starability-slot">
+                <input 
+                type="radio" 
+                id="no-rate" 
+                class="input-no-rate"  
+                name = "review[rating]"
+                value="1" 
+                checked 
+                aria-label="No rating." />
+                <input 
+                type="radio" 
+                id="first-rate1" 
+                name = "review[rating]" 
+                value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input 
+                type="radio" 
+                id="first-rate2" 
+                name = "review[rating]" 
+                value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input 
+                type="radio" 
+                id="first-rate3" 
+                 name = "review[rating]"
+                  value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input 
+                type="radio" 
+                id="first-rate4" 
+                name = "review[rating]" 
+                value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input 
+                type="radio" 
+                id="first-rate5" 
+                name = "review[rating]" 
+                value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+              </div>
+            <div class="mt-2 mb-2">
+                <label for="comment" class="form-label">Comments</label>
+                <textarea 
+                name="review[comment]" 
+                id="comment" 
+                cols="30" 
+                rows="4"
+                class="form-control"
+                
+                required
+                ></textarea>
+                <div class="invalid-feedback">Cannot Send blank Review</div>
+            </div>
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+        </form>
+        <%}%>
+        <hr>
+        <p><b></b>All Reviews </b></p>
+        
+        <div class="row">
+
+            <% for(review of listing.reviews){ %> 
+                 
+                <div  class="card col-5 ms-2 mb-3 view-review">
+                    <div class="card-body">
+                        <h5 class="card-title">@<%=review.author.username%></h5>
+                        <p 
+                        class="starability-result card-text" 
+                        data-rating="<%= review.rating%>">
+                        </p>
+                        <p class="card-text"><%= review.comment%></p>
+                    </div>
+                    <% if(currUser && currUser._id.equals(review.author._id)) {%>
+                    <form 
+                    action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" 
+                    method="Post"
+                    >
+                    <button class="btn btn-dark btn-sm mt-2 mb-2">Delete</button>
+                    </form>
+                    <%}%>
+                </div>
+                <%}%>
+            </div>
+        
+    </div>
+    <!-- <script src="/js/script.js"></script>   -->
+    
+    <script>
+        let listingPhone = document.getElementById("listing-phone")
+        let reviewPhone = document.getElementById("review-phone");
+        let showTitle = document.getElementById("show-title")
+       
+        console.log(screen.width);
+        if(screen.width<862){
+            listingPhone.classList.remove("col-6","offset-3")
+            reviewPhone.classList.remove("col-6","offset-3")
+            showTitle.classList.remove("offset-3") 
+        }
+
+     let viewReview = document.querySelectorAll('.view-review');
+
+    viewReview.forEach(function(change) {
+    change.classList.add('col-11');
+});
+
+
+    </script>

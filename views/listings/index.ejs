@@ -1,0 +1,300 @@
+<%layout('layouts/boilerplate') -%> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+  #filters{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-evenly;
+     align-items: center;
+  }
+
+  .filter{
+    text-align: center;
+    /* margin-right: 2.64rem; */
+    margin-top: 2rem;
+    margin-right: 0.8rem;
+    opacity: 0.65;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .filter p{
+    font-size: 0.9rem;
+  }
+
+  .tax-info{
+    display: none;
+  }
+
+  .tax-toggle{
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 5px;
+    opacity: 0.9;
+  }
+
+  .tax-toggle:hover{
+     opacity: 1;
+  }
+
+
+/* contanier 2 */
+.wrapper {
+    display: flex;
+  }
+  
+  .block {
+    flex: 1;
+    border-radius: 10px;
+    background-color: #fd9e9e;
+
+    margin: 0 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .block-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .block-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .block-column {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #2e56e4;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content input[type="text"] {
+    width: calc(100% - 80px);
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-content button {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropbtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover {
+    background-color: #0056b3;
+  }
+
+  </style>
+
+
+<body> 
+   <div id="filters">   
+    <div class="filter ">
+      <div> <i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter ">
+      <div> <i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+    <div class="filter ">
+      <div> <i class="fa-solid fa-umbrella-beach"></i></div>
+      <p>Beachs</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-city"></i></div>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <div> <i class="fa-solid fa-house"></i></div>
+      <p>Cabins</p>
+    </div>
+    <div class="filter">
+      <div> <i class="fa-solid fa-tractor"></i></div>
+      <p>Farms</p>
+    </div>
+    <div class="filter ">
+      <div><i class="fa-solid fa-ship"></i></div>
+      <p>Boats</p>
+    </div>
+    <div class="filter ">
+      <div> <i class="fa-solid fa-person-swimming"></i></div>
+      <p>Swimming Pool</p>
+    </div>
+    <div class="filter">
+      <div> <i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </div>
+     
+    <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Total after Taxes</label>
+    </div>
+   </div>
+  </div>
+
+<hr>
+<div class="box-container">
+  <div class="container1">
+    <div class="section">
+     <a href="#"><div class="box1">Share your room</div></a>
+    </div>
+    <div class="section">
+      <a href="#"><div class="box2">Rent a room</div></a>
+    </div>
+    <div class="section section3">
+      <div class="list-container">
+        <ul class="list">
+          <li><a href="#">Welcome</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">Adventure</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+
+
+<div class="wrapper">
+  <div class="block">
+    <div class="block-title">When</div>
+    <div class="block-content">
+      <div class="block-column">
+        <h3>Check In Date</h3>
+        <input type="text" id="checkInDate" placeholder="Select date">
+      </div>
+      <div class="block-column">
+        <h3>Check Out Date</h3>
+        <input type="text" id="checkOutDate" placeholder="Select date">
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-title">Where</div>
+    <div class="block-content">
+      <div class="dropdown">
+        <button class="dropbtn">Search Destination</button>
+        <div class="dropdown-content">
+          <input type="text" id="destination" placeholder="Search...">
+          <button>Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-title">Who</div>
+    <div class="block-content">
+      <a href="/html/profile.html" target="_blank" style="text-decoration: none; color: black;"><button>Create a Profile</button></a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for (let listing of allListings) { %> 
+        <a href="/listings/<%=listing.id%>" class="listing-links"> 
+        <div class="card col listing-card">
+      <img 
+        src="<%=listing.image.url%>" 
+        class="card-img-top" 
+        alt="listing_image" 
+        style="height:20rem;"/>
+
+        <div class="card-img-overlay">
+            <h5 class="card-img-title"></h5>
+            <p class="card-text"> </p>
+            <p class="card-text"><small> </small></p>
+          </div>
+        
+        <div class="card-body">
+            <h5 class="card-title"></b><%=listing.title%></b></h5> 
+            <p class="card-text">&#8377;<%= listing.price?.toLocaleString("en-IN")%> / night
+            <i class="tax-info">&nbsp;  +18%GST</i>
+          </p>
+        </div>
+    </div>
+</a>
+      <%}%>
+    </div>
+     
+
+ <script>
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+  taxSwitch.addEventListener("click",()=>{
+    let taxInfo = document.getElementsByClassName("tax-info")
+    for(info of taxInfo){
+      if(info.style.display != "inline"){
+        info.style.display = "inline";
+      }else{
+        info.style.display = "none";
+      }
+
+    }
+  })
+ </script>
+ <script>
+  $(function() {
+    $("#checkInDate").datepicker();
+    $("#checkOutDate").datepicker();
+  });
+</script>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Profile</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffcccc; /* Pink background color */
+    margin: 0;
+    padding: 0;
+    color: black;
+  }
+  
+  .container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ec9bc6;
+    color: black;
+  }
+  
+  form {
+    flex-direction: row;
+    margin:10px 0px 10px 0px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px;
+    color:black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ff0c8d;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #131313; /* Pink color for the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+  }
+  
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 70px;
+    margin-bottom: 20px; /* Add some space between fieldsets */
+  }
+  
+  legend {
+    font-weight: bold;
+    color: #333; /* Dark color for legends */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff8f8; /* Light color for labels */
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.5); /* Increase the size of checkboxes */
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #bd52ab;
+    background-color:#f7d2e6 ;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: #171717;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto; /* Center the submit button */
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #f4bedb;
+  }
+
+  .checklists {
+    display: flex;
+     
+  }
+  
+  @media screen and (max-width: 600px) {
+    form {
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <form>
+    <h1>Create Profile</h1>
+   <div class="checklists">
+    <fieldset>
+      <legend>Interests</legend>
+      <label><input type="checkbox" name="interests" value="Music"> Music</label>
+      <label><input type="checkbox" name="interests" value="Sports"> Sports</label>
+      <label><input type="checkbox" name="interests" value="Sports"> Dance</label>
+      <label><input type="checkbox" name="interests" value="Sports"> Science</label>
+      <!-- Add more checkboxes for other interests -->
+    </fieldset>
+    <fieldset>
+      <legend>Hobbies</legend>
+      <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+      <label><input type="checkbox" name="hobbies" value="Cooking"> Cooking</label>
+      <!-- Add more checkboxes for other hobbies -->
+    </fieldset>
+    <fieldset>
+      <legend>Smoker</legend>
+      <label><input type="checkbox" name="smoker" value="Yes"> Yes</label>
+      <label><input type="checkbox" name="smoker" value="Yes"> No</label>
+    </fieldset>
+    <fieldset>
+      <legend>Age</legend>
+      <input type="number" name="age" min="18" max="99">
+    </fieldset>
+    <fieldset>
+    </div>
+      <legend>Personal Story to Share</legend>
+      <textarea name="story" placeholder="Tell us about yourself..."></textarea>
+    </fieldset>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
